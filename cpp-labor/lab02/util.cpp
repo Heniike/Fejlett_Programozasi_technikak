@@ -83,11 +83,26 @@ void printArray(Point *points, int numPoints) {
 }
 
 pair<Point, Point> closestPoints(Point *points, int numPoints) {
-
     for (int i = 0; i < numPoints; i++) {
-
+        for (int j = i + 1; j < numPoints; j++) {
+            if (isSquare(points[i], points[j], points[(i + 1) % numPoints], points[(j + 1) % numPoints])) {
+                return make_pair(points[i], points[j]);
+            }
+        }
     }
-    cout<< " ";
+}
+
+pair<Point, Point> farthestPoints(Point *points, int numPoints) {
+    for (int i = 0; i < numPoints; i++) {
+        for (int j = i + 1; j < numPoints; j++) {
+            if (isSquare(points[i], points[j], points[(i + 1) % numPoints], points[(j + 1) % numPoints])) {
+                return make_pair(points[i], points[j]);
+            }
+        }
+    }
+}
+
+Point *farthestPointsFromOrigin(Point *points, int numPoints) {
 
 }
 

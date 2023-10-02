@@ -18,7 +18,8 @@ void deletePoints(Point* points);
 void sortPoints(Point* points, int numPoints);
 void printArray(Point* points, int numPoints);
 pair<Point, Point> closestPoints(Point* points, int numPoints);
-
+pair<Point, Point> farthestPoints(Point* points, int numPoints);
+Point* farthestPointsFromOrigin(Point* points, int numPoints);
 
 
 #endif //LAB2_UTIL_H
