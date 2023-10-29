@@ -61,8 +61,8 @@ int main() {
     cout << "Popped value: " << stack.pop() << endl;
 
     try {
-        cout << "Popped value: " << stack.pop() << endl; // Should throw an exception
-    } catch (const std::exception& e) {
+        cout << "Popped value: " << stack.pop() << endl;
+    } catch (const exception& e) {
         cerr << "Exception: " << e.what() << endl;
     }
 
