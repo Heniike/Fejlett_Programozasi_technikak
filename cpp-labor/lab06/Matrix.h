@@ -40,27 +40,27 @@ public:
 
 // operation is permitted on matrices having proper dimensions
 // otherwise throws an out_of_range exception!!
-    //friend Matrix operator*(const Matrix &x, const Matrix &y);
+    friend Matrix operator*(const Matrix &x, const Matrix &y);
 
     ///Olvasas es iras
     // extractor operator
-    //friend istream & operator>>(istream& is, Matrix& mat);
+    friend istream & operator>>(istream& is, Matrix& mat);
 // inserter operator
     friend ostream & operator<<(ostream& os, const Matrix& mat);
 
     ///Indexeles
     // index operator
-    //double* operator[] (int index);
+    double* operator[] (int index);
 // index operator that works on constant matrices!
-    //double* operator[] (int index) const;
+    double* operator[] (int index) const;
 
     ///Ertekadas operatorok
     // Copy assignment
 // operation is permitted between matrices having the same dimensions
 // otherwise throws an exception (out_of_range)
-    //Matrix & operator=(const Matrix& mat);
+    Matrix & operator=(const Matrix& mat);
 // Move assignment
-    //Matrix & operator=(Matrix&& mat);
+    Matrix & operator=(Matrix&& mat);
 
 
 private:

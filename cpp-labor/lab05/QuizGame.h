@@ -6,37 +6,33 @@
 #define LAB5_QUIZGAME_H
 
 #include <string>
-#include "Answer.h"
-#include <vector>
-#include <stdexcept>
-#include "Question.h"
 #include "Quiz.h"
 
 using namespace std;
 
 class QuizGame {
 private:
-    vector<string> playersName;
+    const Quiz& quiz;
     int score;
 
-
+    //vector<string> QuizName;
 
 public:
+        QuizGame(const Quiz &quiz, int score = 0) : quiz(quiz), score(score){};
+        void playQuiz();
+        int getScore() const { return score; }
 
-    QuizGame(const vector<string> &name, int score = 0) {
-        this->playersName = name;
-        this->score = score;
 
-    }
+//    QuizGame(const vector<string> &name, int score = 0) {
+//        this->QuizName = name;
+//        this->score = score;
+//        this->playersName.resize(name.size());
+//    }
 
-    string getName() const {
-        return playersName[0];
-    }
-
-    int getScore() const {
-        return score;
-    }
-
+//    string getName() const {
+//        return QuizName[0];
+//    }
+//
 //    const vector<string> &getPlayersName(int index) const {
 //        if(index < 0 || index >= playersName.size()){
 //            throw out_of_range("Index out of range");
@@ -44,7 +40,6 @@ public:
 //        return playersName[index];
 //    }
 
-    void playQuiz(Quiz &quiz, vector<string>& playersName);
 };
 
 

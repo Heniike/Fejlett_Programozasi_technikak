@@ -1,0 +1,15 @@
+Video v1(T2QvVBSfagU","A Turissta odamegy a Paraszthoz", 0.44,"KockaSajt", 20150625);
+Video v2(MTY1Kje0yLg","Gravity Visualized", 9.57,"apbiolghs", 20120310);
+Video v3("tjf-1BxpR9c",
+"NVIDIA RTX and GameWorks Ray Tracing Technology Demonstartion", 8.17,"NVIDIA GeForce", 20180321);
+Video v4("fHfhorJnAEI",
+"See invisible mostion; Hear silent sounds. Cool? Creepy? We can't decide | Michael Rubinstrin ", 13.22,"TED", 20141223);
+Video v5(1wAaI_6b9JE",
+"Four dimensional Maths: Things to See and Hear in the Fourth Dimension - with Matt Parker", 61.39,"The Royal Institution", 20150225);
+Video v6("EekCn4wed1E",
+"A Hands-on Look at Using Ray Tracing in Games with UE 4.22 | GDC 2019 | Unreal Engine", 28.35,"UnrealEngine", 20190325);
+Video v7("IUjpoauJcKo",
+"More adventures in replying to spam | James Veitch", 10.20,"TED Archive", 20170127);
+Video v8("Qjt_MqEOcGM",
+"Troll' from Goodbye Kansas and Deep Forest Films | GDC 2019 | Unreal Engine", 1.33,"UnrealEngine", 20190320);
+Video v9("6MmiaqK342c","Evolution of NVIDIA GeForce 1999-2017", 13.59,"GameForest", 20171107);

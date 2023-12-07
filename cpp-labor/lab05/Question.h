@@ -16,22 +16,28 @@ private:
     string text;
     vector<Answer> answers;
 public:
-    Question() = default; //default konstruktor
-    void setText(const string &text) {
-        this->text = text;
-    }
+    Question() = default;
+    void setText(const string &text) { this->text = text; }
+    void setAnswers(const vector<Answer> &answers) { this->answers = answers; }
+    string getText() const { return text; }
+    vector<Answer> getAnswers() const { return answers; }
 
-    string getText() const { // a getterek konstans tagfuggvenyek
-        return text;
-    }
-
-    void setAnswers(const vector<Answer> &answers) {
-        this->answers = answers;
-    }
-
-    vector<Answer> getAnswers() const {
-        return answers;
-    }
+//    Question() = default; //default konstruktor
+//    void setText(const string &text) {
+//        this->text = text;
+//    }
+//
+//    string getText() const { // a getterek konstans tagfuggvenyek
+//        return text;
+//    }
+//
+//    void setAnswers(const vector<Answer> &answers) {
+//        this->answers = answers;
+//    }
+//
+//    vector<Answer> getAnswers() const {
+//        return answers;
+//    }
 
 };
 

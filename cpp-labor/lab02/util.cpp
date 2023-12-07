@@ -81,28 +81,76 @@ void printArray(Point *points, int numPoints) {
     }
     cout << endl;
 }
+//
+//pair<Point, Point> closestPoints(Point *points, int numPoints) {
+//    for (int i = 0; i < numPoints; i++) {
+//        for (int j = i + 1; j < numPoints; j++) {
+//            if (isSquare(points[i], points[j], points[(i + 1) % numPoints], points[(j + 1) % numPoints])) {
+//                return make_pair(points[i], points[j]);
+//            }
+//        }
+//    }
+//}
+//
+//pair<Point, Point> farthestPoints(Point *points, int numPoints) {
+//    for (int i = 0; i < numPoints; i++) {
+//        for (int j = i + 1; j < numPoints; j++) {
+//            if (isSquare(points[i], points[j], points[(i + 1) % numPoints], points[(j + 1) % numPoints])) {
+//                return make_pair(points[i], points[j]);
+//            }
+//        }
+//    }
+//}
+//
+//Point *farthestPointsFromOrigin(Point *points, int numPoints) {
+//
+//}
+pair<Point, Point> farthestPoints(Point *points, int numPoints) {
+    if(numPoints < 2) {
+        cout << "ERROR: too few points" << endl;
+    }
+    pair<Point, Point> farthestPair;
+    double max = distance(points[0], points[1]);
+    for (int i = 0; i < numPoints-1; ++i) {
+        for (int j = i + 1; j < numPoints; ++j) {
+            if (distance(points[i], points[j])  > max) {
+                max = distance(points[i], points[j]);
+                farthestPair = make_pair(points[i], points[j]);
+            }
+        }
+    }
+    return farthestPair;
+}
 
 pair<Point, Point> closestPoints(Point *points, int numPoints) {
-    for (int i = 0; i < numPoints; i++) {
-        for (int j = i + 1; j < numPoints; j++) {
-            if (isSquare(points[i], points[j], points[(i + 1) % numPoints], points[(j + 1) % numPoints])) {
-                return make_pair(points[i], points[j]);
+    if(numPoints < 2) {
+        cout << "ERROR: too few points" << endl;
+    }
+    pair<Point, Point> closestPair;
+    double min = distance(points[0], points[1]);
+    for (int i = 0; i < numPoints-1; ++i) {
+        for (int j = i + 1; j < numPoints; ++j) {
+            if (distance(points[i], points[j])  < min) {
+                min = distance(points[i], points[j]);
+                closestPair = make_pair(points[i], points[j]);
             }
         }
     }
+    return closestPair;
 }
 
-pair<Point, Point> farthestPoints(Point *points, int numPoints) {
-    for (int i = 0; i < numPoints; i++) {
-        for (int j = i + 1; j < numPoints; j++) {
-            if (isSquare(points[i], points[j], points[(i + 1) % numPoints], points[(j + 1) % numPoints])) {
-                return make_pair(points[i], points[j]);
-            }
-        }
-    }
-}
+bool compareDist(const Point &p1, const Point &p2) {
+    return distance(p1, Point(0, 0)) < distance(p2, Point(0, 0));
 
+}
 Point *farthestPointsFromOrigin(Point *points, int numPoints) {
-
+    if(numPoints <= 10){
+        Point *newPoints = new Point[numPoints];
+        copy(points, points + numPoints, newPoints);
+        return newPoints;
+    }
+    partial_sort(points, points+10,points+numPoints, compareDist);
+    Point *result = new Point[10];
+    copy(points, points + 10, result);
+    return result;
 }
-
