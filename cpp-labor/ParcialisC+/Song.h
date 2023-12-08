@@ -14,10 +14,10 @@ public:
     Song();
     Song(const string &title, const string &artist, int duration);
     Song(const Song &other);
-    Song(Song &&other);
+    Song(Song &&other) noexcept;
 // Assignment operators
     Song& operator=(const Song &other);
-    Song& operator=(Song &&other);
+    Song& operator=(Song &&other)noexcept;
 // Getter methods
     string getTitle() const;
     string getArtist() const;
