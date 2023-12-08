@@ -14,10 +14,11 @@ void GraduationDao::enrollStudents(const string &filename) {
         exit(1);
     }
     int id;
-    int firstName, lastName;
+    string firstName, lastName;
     while(file >> id >> firstName >> lastName){
-        Student student(id, to_string(firstName), to_string(lastName));
-        students.insert(pair<int, Student>(id, student));
+        Student student(id, firstName, lastName);
+        //students.insert(pair<int, Student>(id, student));
+        students.emplace(id, student);
     }
     file.close();
 }
@@ -46,8 +47,11 @@ void GraduationDao::saveGradesForSubject(const string &subject, const string &fi
 }
 
 void GraduationDao::computeAverage() {
-    for(auto it = students.begin(); it != students.end(); it++){
-        it->second.computeAverage();
+//    for(auto it = students.begin(); it != students.end(); it++){
+//        it->second.computeAverage();
+//    }
+    for(auto &student : students){
+        student.second.computeAverage();
     }
 }
 
@@ -66,10 +70,15 @@ int GraduationDao::numPassed() const {
 }
 
 Student GraduationDao::findById(int id) const {
-    if(!students.count(id)){
-        throw out_of_range("Student not found");
+//    if(!students.count(id)){
+//        throw out_of_range("Student not found");
+//    }
+//    return students.at(id);
+    auto it = students.find(id);
+    if(it != students.end()){
+        return it->second;
     }
-    return students.at(id);
+    throw out_of_range("Student not found");
 }
 
 double GraduationDao::getAverageBySubject(const string &subject) const {
